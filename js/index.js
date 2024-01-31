@@ -5872,7 +5872,7 @@ function star() {
 }
 function show_date_time() {
     window.setTimeout("show_date_time()", 1000);
-    BirthDay = new Date("2023/09/24");
+    BirthDay = new Date("2024/01/31");
     today = new Date();
     timeold = (today.getTime() - BirthDay.getTime());
     sectimeold = timeold / 1000
@@ -5933,115 +5933,4 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-// Thay đổi nội dung của phần tử có id "checkip_address" bằng thông tin đã cho
-function updateInfo(info) {
-    const element = document.getElementById("checkip_address");
-    element.textContent = info;
-}
-
-// Hiển thị thông tin IP và địa chỉ vị trí
-function displayInfo() {
-    fetch('https://api.ipify.org?format=json')
-        .then(response => response.json())
-        .then(data => {
-            const ipAddress = data.ip;
-            updateInfo(ipAddress); // Hiển thị địa chỉ IP
-
-            setTimeout(() => {
-                // Lấy thông tin vị trí từ API cung cấp địa chỉ IP
-                fetch(`https://ipapi.co/${ipAddress}/json/`)
-                    .then(response => response.json())
-                    .then(data => {
-                        const city = data.city;
-                        const country = data.country_name;
-                        const locationInfo = `${city}, ${country}`;
-                        updateInfo(locationInfo); // Hiển thị địa chỉ vị trí
-
-                        setTimeout(displayInfo, 1500); // Gọi lại hàm displayInfo sau 2 giây
-                    })
-                    .catch(error => {
-                        console.error('Lỗi khi lấy thông tin vị trí:', error);
-                        updateInfo("Không thể lấy thông tin vị trí");
-                    });
-            }, 2000); // Chờ 2 giây trước khi lấy thông tin vị trí
-        })
-        .catch(error => {
-            console.error('Lỗi khi kiểm tra địa chỉ IP:', error);
-            updateInfo("Không thể lấy địa chỉ IP");
-        });
-}
-
-// Gọi hàm hiển thị thông tin IP và địa chỉ vị trí
-displayInfo();
-
-
-
-console.log('%c* 𝑺𝑻𝑶𝑷 𝑪𝑶𝑷𝒀 𝑺𝑶𝑼𝑹𝑪𝑬 !', 'color: red; font-size: 50px; font-family: sans-serif; text-shadow: 1px 1px 5px #000;');
-console.log('%c- Có vẻ như bạn đang cố tình ăn cắp mã nguồn của tôi </ Huu Cuong >.', 'color: #444; font-size: 25px; font-family: sans-serif;');
-console.log('%c- Đó là hành vi không tốt, cần source inbox facebook để xin.\n', 'color: #444; font-size: 25px; font-family: sans-serif;');
-
-document.addEventListener('DOMContentLoaded', function () {
-    var overlay = document.getElementById('overlay');
-    var text = document.getElementById('text');
-    var audio = new Audio('./audio/huucuong.mp3');
-
-    overlay.addEventListener('click', function () {
-        audio.loop = true;
-        audio.play();
-
-        overlay.style.opacity = 0;
-        overlay.style.pointerEvents = 'none';
-        text.style.opacity = 0;
-        text.style.pointerEvents = 'none';
-
-        setTimeout(function () {
-            overlay.style.display = 'none';
-            text.style.display = 'none';
-
-            document.body.style.overflow = 'auto';
-            document.body.style.pointerEvents = 'auto';
-        }, 500);
-    });
-
-    document.body.style.overflow = 'hidden';
-    document.body.style.pointerEvents = 'none';
-});
-// Lấy phần tử overlay
-var overlay = document.getElementById("overlay");
-
-// Tạo phần tử div cho phần text
-var textDiv = document.createElement("div");
-textDiv.id = "text";
-
-// Tạo phần tử p cho dòng chữ "Welcome to my website"
-var welcomeText = document.createElement("p");
-welcomeText.style.fontFamily = "Quicksand";
-welcomeText.style.fontSize = "18px";
-welcomeText.textContent = "Hữu Cương🧸🥀";
-welcomeText.style.marginBottom = "10px"; // Khoảng cách dưới 10px
-
-
-// Tạo phần tử p cho dòng chữ "- Nhấn để tiếp tục -"
-var continueText = document.createElement("p");
-continueText.style.fontFamily = "Quicksand";
-continueText.style.fontSize = "12px";
-continueText.textContent = "- Click to continue -";
-
-
-
-// Thêm các phần tử vào phần tử textDiv
-textDiv.appendChild(welcomeText);
-textDiv.appendChild(continueText);
-
-// Thêm phần tử textDiv vào overlay
-overlay.appendChild(textDiv);
-
-// Thiết lập sự kiện click cho overlay
-overlay.addEventListener("click", function () {
-    // Ẩn overlay
-    overlay.style.display = "none";
-
-    // Thêm mã JavaScript của bạn để bắt đầu phát nhạc hoặc thực hiện các hành động khác ở đây
-});
-
-
+// 
